@@ -8,8 +8,10 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 openai.api_key = OPENAI_API_KEY
 
+
 def start(update: Update, context: CallbackContext):
     update.message.reply_text("Привіт! Я бот, який може генерувати привітання з днем народження. Використовуйте команду /birthday <ім'я> <вік> <хобі>, щоб отримати привітання.")
+
 
 def generate_birthday_greeting(name, age, hobby):
     prompt = f"Напиши привітання з днем народження для {name}, якому виповнюється {age} років, і який захоплюється {hobby}."
@@ -19,6 +21,7 @@ def generate_birthday_greeting(name, age, hobby):
         max_tokens=100
     )
     return response.choices[0].text.strip()
+
 
 def birthday(update: Update, context: CallbackContext):
     if len(context.args) >= 3:
@@ -30,6 +33,7 @@ def birthday(update: Update, context: CallbackContext):
     else:
         update.message.reply_text("Будь ласка, введіть ім'я, вік і хобі після команди /birthday. Наприклад: /birthday Іван 30 риболовля.")
 
+
 def main():
     updater = Updater(token=TELEGRAM_TOKEN, use_context=True)
     dispatcher = updater.dispatcher
@@ -39,6 +43,7 @@ def main():
 
     updater.start_polling()
     updater.idle()
+
 
 if __name__ == '__main__':
     main()
