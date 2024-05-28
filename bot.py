@@ -1,9 +1,10 @@
+import os
 import openai
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 
-TELEGRAM_TOKEN = '7486217733:AAGzQer6X5uv7-WVlQPKgmhYM9qI5seC-wQ'
-OPENAI_API_KEY = 'sk-proj-mKD2FfRjZHTaV80vYcuXT3BlbkFJs07GSTlwftMbQB1i3j3G'
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 openai.api_key = OPENAI_API_KEY
 
