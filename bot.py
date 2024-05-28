@@ -35,7 +35,7 @@ def birthday(update: Update, context: CallbackContext):
 
 
 def main():
-    updater = Updater(token=TELEGRAM_TOKEN, use_context=True)
+    updater = Updater(bot_token=TELEGRAM_TOKEN, use_context=True)
     dispatcher = updater.dispatcher
 
     dispatcher.add_handler(CommandHandler('start', start))
